@@ -1,0 +1,121 @@
+/*
+ALENINDAHOUSE+ — DESIGN SYSTEM LAYER V1
+ARCHITECTURE ONLY.
+
+This file is intentionally non-invasive:
+- existing working styles.css remains the visual source of truth;
+- these tokens/classes are namespaced with --ah- / ah-;
+- nothing here overrides the existing baseline unless a future screen explicitly uses an ah-* component.
+*/
+
+:root {
+  /* Global families */
+  --ah-font-display: "Montserrat", Arial, sans-serif;
+  --ah-font-body: "Roboto", Arial, sans-serif;
+
+  /* Global colors — mirrored from the working baseline */
+  --ah-color-bg: #111111;
+  --ah-color-text: #f3f0eb;
+  --ah-color-muted: #a9a39b;
+  --ah-color-menu: #9d9992;
+  --ah-color-accent: #c99a57;
+  --ah-color-line: #2a2927;
+  --ah-color-telegram: #229ed9;
+  --ah-color-whatsapp: #25d366;
+
+  /* Global breakpoints */
+  --ah-bp-mobile: 760px;
+  --ah-bp-small-mobile: 380px;
+  --ah-bp-tablet: 1100px;
+  --ah-bp-desktop: 1101px;
+  --ah-bp-wide-navigation: 1440px;
+
+  /* Shared layout */
+  --ah-content-mobile: calc(100% - 28px);
+  --ah-content-tablet: min(1200px, calc(100% - 40px));
+  --ah-content-desktop: min(1400px, calc(100% - 64px));
+
+  /* Shared UI */
+  --ah-radius: 10px;
+  --ah-primary-width: 260px;
+  --ah-primary-height: 48px;
+
+  /* Shared typography references */
+  --ah-section-label-size-desktop: clamp(11px, .78vw, 14px);
+  --ah-section-kicker-size-desktop: clamp(10px, .7vw, 13px);
+  --ah-body-size-desktop: 20px;
+  --ah-body-weight-desktop: 300;
+}
+
+/*
+TYPE SYSTEM
+----------
+ah-section-label     = номер + название блока
+ah-section-kicker    = расшифровка блока
+ah-heading           = основной заголовок
+ah-body              = основной текст
+ah-primary           = глобальная Primary-кнопка reference
+
+A future screen may use these explicitly.
+Existing screens do not depend on them yet.
+*/
+
+.ah-section-label,
+.ah-section-kicker {
+  font-family: var(--ah-font-body);
+  text-align: left;
+}
+
+.ah-section-label {
+  font-size: var(--ah-section-label-size-desktop);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: .16em;
+}
+
+.ah-section-kicker {
+  font-size: var(--ah-section-kicker-size-desktop);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.ah-heading {
+  font-family: var(--ah-font-display);
+}
+
+.ah-body {
+  font-family: var(--ah-font-body);
+  font-size: var(--ah-body-size-desktop);
+  font-weight: var(--ah-body-weight-desktop);
+  line-height: 1.45;
+}
+
+@media (max-width: 760px) {
+  .ah-section-label {
+    font-size: 10px;
+  }
+
+  .ah-section-kicker {
+    font-size: 9px;
+  }
+
+  .ah-body {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 380px) {
+  .ah-section-label {
+    font-size: 10px;
+  }
+
+  .ah-section-kicker {
+    font-size: 9px;
+  }
+
+  .ah-body {
+    font-size: 14px;
+  }
+}
